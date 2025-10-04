@@ -1,0 +1,534 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/navigation/SidebarNavigation.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+.SidebarNavigation_sidebar__AENKU {
+  width: 260px;
+  min-height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.SidebarNavigation_brand__RrWh_ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.SidebarNavigation_brandName__YxedM {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.SidebarNavigation_brandTagline__DhHoG {
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+}
+
+.SidebarNavigation_sectionLabel__OLw7i {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  padding: 0 0.5rem;
+}
+
+.SidebarNavigation_navList__It7GG {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+}
+
+.SidebarNavigation_navLink__fFyGL {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition);
+  font-size: 0.95rem;
+}
+
+.SidebarNavigation_navLink__fFyGL:hover {
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.SidebarNavigation_navLinkActive__4L5pe {
+  background: var(--accent-soft);
+  color: #1d3bb8;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+}
+
+.SidebarNavigation_navHint__ibqxj {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.SidebarNavigation_divider__T24l9 {
+  height: 1px;
+  background: var(--divider);
+}
+
+.SidebarNavigation_footer__j3OvL {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.SidebarNavigation_roleTag__242n3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface-muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.SidebarNavigation_switcherButton__3UHG5 {
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.SidebarNavigation_switcherButton__3UHG5:hover {
+  background: var(--surface-muted);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .SidebarNavigation_sidebar__AENKU {
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .SidebarNavigation_navList__It7GG {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .SidebarNavigation_sectionLabel__OLw7i,
+  .SidebarNavigation_divider__T24l9,
+  .SidebarNavigation_footer__j3OvL,
+  .SidebarNavigation_switcherButton__3UHG5 {
+    display: none;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/panels/StatusBadge.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.StatusBadge_badge__pd7qp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.StatusBadge_default__PWsMN {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.StatusBadge_success__P8H71 {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.StatusBadge_warning__rNx7t {
+  background: #fff7ed;
+  color: #b45309;
+}
+
+.StatusBadge_critical__JDj3E {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/layout/TopBar.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.TopBar_topBar__HHznQ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.TopBar_left__Qi6QJ {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.TopBar_searchField__HaeSv {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-subtle);
+  font-size: 0.9rem;
+  width: clamp(220px, 28vw, 360px);
+}
+
+.TopBar_searchField__HaeSv input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  width: 100%;
+}
+
+.TopBar_right__y_yom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.TopBar_quickButton__pz5d5 {
+  padding: 0.45rem 0.9rem;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: filter var(--transition);
+}
+
+.TopBar_quickButton__pz5d5:hover {
+  filter: brightness(0.95);
+}
+
+.TopBar_avatar__GZNlC {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: grid;
+  place-items: center;
+  color: #1d3bb8;
+  font-weight: 600;
+}
+
+.TopBar_notification__S2QSP {
+  position: relative;
+  padding: 0.45rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.TopBar_notificationBadge__gVTM8 {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--critical);
+  color: #fff;
+  font-size: 0.65rem;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 768px) {
+  .TopBar_topBar__HHznQ {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .TopBar_left__Qi6QJ,
+  .TopBar_right__y_yom {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .TopBar_searchField__HaeSv {
+    width: 100%;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/layout/AppShell.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.AppShell_wrapper__D7oJl {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+}
+
+.AppShell_main__30gap {
+  position: relative;
+  padding: 2.25rem 3rem;
+  background: var(--surface-muted);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.AppShell_header__Jfa5N {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+.AppShell_titleBlock__tkB1c {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.AppShell_titleRow__AdFt5 {
+  display: flex;
+  align-items: center;
+}
+
+.AppShell_headingIcon__eVQj9 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: #1d3bb8;
+  font-size: 1.2rem;
+  margin-right: 0.9rem;
+}
+
+.AppShell_title__uYky_ {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.AppShell_subtitle__aUUd3 {
+  color: var(--text-subtle);
+  font-size: 0.95rem;
+  max-width: 720px;
+}
+
+.AppShell_actions__zJ46H {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.AppShell_content__d6fGl {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .AppShell_wrapper__D7oJl {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .AppShell_main__30gap {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .AppShell_wrapper__D7oJl {
+    grid-template-columns: 1fr;
+  }
+
+  .AppShell_main__30gap {
+    padding: 1.75rem 1.5rem;
+    border-left: none;
+  }
+
+  .AppShell_header__Jfa5N {
+    margin-top: 2rem;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/panels/GlassPanel.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.GlassPanel_panel__j95X7 {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.GlassPanel_header__m1kpo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.GlassPanel_title__W48_S {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.GlassPanel_caption__n4vmy {
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
+
+.GlassPanel_actions__e3Xp6 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .GlassPanel_panel__j95X7 {
+    padding: 1.25rem;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/tables/DataTable.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+.DataTable_tableWrapper__M5CFi {
+  width: 100%;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.DataTable_table__6T1h9 {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.DataTable_table__6T1h9 thead {
+  background: var(--surface-muted);
+}
+
+.DataTable_table__6T1h9 th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.85rem;
+  color: var(--text-subtle);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.DataTable_table__6T1h9 td {
+  padding: 1rem 0.85rem;
+  border-top: 1px solid var(--divider);
+  color: var(--text);
+}
+
+.DataTable_table__6T1h9 tbody tr:hover td {
+  background: var(--surface-muted);
+}
+
+.DataTable_emptyState__9I1Qr {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-subtle);
+}
+
+@media (max-width: 768px) {
+  .DataTable_table__6T1h9 th,
+  .DataTable_table__6T1h9 td {
+    padding: 0.75rem;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/forms/FormField.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.FormField_field__ySw0Y {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.FormField_label__nfncY {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.FormField_input__2vk_4,
+.FormField_select__z3I_Y,
+.FormField_textarea__nCI33 {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.FormField_input__2vk_4:focus,
+.FormField_select__z3I_Y:focus,
+.FormField_textarea__nCI33:focus {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.FormField_helper___i8hh {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+

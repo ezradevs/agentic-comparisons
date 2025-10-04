@@ -1,0 +1,139 @@
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.brandTagline {
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  padding: 0 0.5rem;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition);
+  font-size: 0.95rem;
+}
+
+.navLink:hover {
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.navLinkActive {
+  background: var(--accent-soft);
+  color: #1d3bb8;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+}
+
+.navHint {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.divider {
+  height: 1px;
+  background: var(--divider);
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.roleTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface-muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.switcherButton {
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.switcherButton:hover {
+  background: var(--surface-muted);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .navList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sectionLabel,
+  .divider,
+  .footer,
+  .switcherButton {
+    display: none;
+  }
+}

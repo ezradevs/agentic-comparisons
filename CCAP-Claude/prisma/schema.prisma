@@ -1,0 +1,146 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          String    @default("admin") // admin, staff
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Member {
+  id              String    @id @default(cuid())
+  firstName       String
+  lastName        String
+  email           String?
+  phone           String?
+  dateOfBirth     DateTime?
+  membershipType  String    // junior, senior, premium
+  membershipStart DateTime  @default(now())
+  membershipEnd   DateTime?
+  rating          Int       @default(1200)
+  fideId          String?
+  usChessId       String?
+  address         String?
+  city            String?
+  state           String?
+  zipCode         String?
+  emergencyContact String?
+  emergencyPhone  String?
+  notes           String?
+  status          String    @default("active") // active, inactive, suspended
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  payments        Payment[]
+  tournamentRegistrations TournamentRegistration[]
+  eventAttendances EventAttendance[]
+  gamesAsWhite    Game[] @relation("WhitePlayer")
+  gamesAsBlack    Game[] @relation("BlackPlayer")
+}
+
+model Tournament {
+  id              String    @id @default(cuid())
+  name            String
+  description     String?
+  startDate       DateTime
+  endDate         DateTime?
+  location        String?
+  format          String    // swiss, round-robin, elimination
+  timeControl     String    // classical, rapid, blitz
+  entryFee        Float     @default(0)
+  maxParticipants Int?
+  status          String    @default("upcoming") // upcoming, in-progress, completed, cancelled
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  registrations   TournamentRegistration[]
+  games           Game[]
+}
+
+model TournamentRegistration {
+  id           String     @id @default(cuid())
+  memberId     String
+  tournamentId String
+  registeredAt DateTime   @default(now())
+  paid         Boolean    @default(false)
+  seed         Int?
+  finalRank    Int?
+  score        Float?
+
+  member       Member     @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  tournament   Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+
+  @@unique([memberId, tournamentId])
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  endDate     DateTime?
+  location    String?
+  eventType   String    // lesson, practice, social, meeting
+  maxAttendees Int?
+  cost        Float     @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  attendances EventAttendance[]
+}
+
+model EventAttendance {
+  id        String   @id @default(cuid())
+  memberId  String
+  eventId   String
+  attended  Boolean  @default(false)
+  paid      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  member    Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([memberId, eventId])
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  memberId      String
+  amount        Float
+  paymentType   String   // membership, tournament, event, other
+  paymentMethod String   // cash, check, card, online
+  description   String?
+  status        String   @default("completed") // pending, completed, refunded
+  paymentDate   DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  member        Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+model Game {
+  id           String     @id @default(cuid())
+  tournamentId String?
+  whiteMemberId String?
+  blackMemberId String?
+  result       String?    // 1-0, 0-1, 1/2-1/2, *
+  date         DateTime   @default(now())
+  round        Int?
+  pgn          String?
+  notes        String?
+
+  tournament   Tournament? @relation(fields: [tournamentId], references: [id], onDelete: SetNull)
+  whiteMember  Member?     @relation("WhitePlayer", fields: [whiteMemberId], references: [id], onDelete: SetNull)
+  blackMember  Member?     @relation("BlackPlayer", fields: [blackMemberId], references: [id], onDelete: SetNull)
+}

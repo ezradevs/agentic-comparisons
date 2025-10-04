@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="desktop">
+        <div id="desktop-icons">
+            <div class="desktop-icon" data-app="files">
+                <div class="icon-image">📁</div>
+                <div class="icon-label">Files</div>
+            </div>
+            <div class="desktop-icon" data-app="terminal">
+                <div class="icon-image">⌨️</div>
+                <div class="icon-label">Terminal</div>
+            </div>
+            <div class="desktop-icon" data-app="notepad">
+                <div class="icon-image">📝</div>
+                <div class="icon-label">Notepad</div>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <div class="icon-image">🔢</div>
+                <div class="icon-label">Calculator</div>
+            </div>
+            <div class="desktop-icon" data-app="about">
+                <div class="icon-image">ℹ️</div>
+                <div class="icon-label">About</div>
+            </div>
+        </div>
+
+        <div id="windows-container"></div>
+
+        <div id="taskbar">
+            <div id="start-button">WebOS</div>
+            <div id="taskbar-apps"></div>
+            <div id="taskbar-time"></div>
+        </div>
+
+        <div id="start-menu" class="hidden">
+            <div class="start-menu-item" data-app="files">📁 Files</div>
+            <div class="start-menu-item" data-app="terminal">⌨️ Terminal</div>
+            <div class="start-menu-item" data-app="notepad">📝 Notepad</div>
+            <div class="start-menu-item" data-app="calculator">🔢 Calculator</div>
+            <div class="start-menu-item" data-app="about">ℹ️ About</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

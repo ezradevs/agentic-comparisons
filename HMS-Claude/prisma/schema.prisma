@@ -1,0 +1,342 @@
+// Hospital Management System Database Schema
+// Generated for comprehensive healthcare management
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums for various statuses and types
+enum Role {
+  PATIENT
+  DOCTOR
+  NURSE
+  ADMIN
+  RECEPTIONIST
+  LAB_TECHNICIAN
+  PHARMACIST
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  PREFER_NOT_TO_SAY
+}
+
+enum BloodType {
+  A_POSITIVE
+  A_NEGATIVE
+  B_POSITIVE
+  B_NEGATIVE
+  AB_POSITIVE
+  AB_NEGATIVE
+  O_POSITIVE
+  O_NEGATIVE
+}
+
+enum PrescriptionStatus {
+  PENDING
+  DISPENSED
+  CANCELLED
+}
+
+enum TestStatus {
+  ORDERED
+  COLLECTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum BillingStatus {
+  PENDING
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// Core User Model
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  password      String?
+  role          Role     @default(PATIENT)
+  firstName     String
+  lastName      String
+  phone         String?
+  dateOfBirth   DateTime?
+  gender        Gender?
+  address       String?
+  city          String?
+  state         String?
+  zipCode       String?
+  emergencyContact String?
+  emergencyPhone String?
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relationships
+  patient       Patient?
+  staff         Staff?
+  auditLogs     AuditLog[]
+
+  @@map("users")
+}
+
+// Patient-specific information
+model Patient {
+  id              String     @id @default(cuid())
+  userId          String     @unique
+  patientId       String     @unique // Hospital-generated patient ID
+  bloodType       BloodType?
+  allergies       String?
+  medicalHistory  String?
+  insurance       String?
+  insuranceId     String?
+
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relationships
+  appointments    Appointment[]
+  medicalRecords  MedicalRecord[]
+  prescriptions   Prescription[]
+  testOrders      TestOrder[]
+  billingRecords  BillingRecord[]
+
+  @@map("patients")
+}
+
+// Staff information (doctors, nurses, etc.)
+model Staff {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  staffId         String   @unique
+  department      String
+  specialization  String?
+  licenseNumber   String?
+  hireDate        DateTime
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relationships
+  appointments    Appointment[]
+  medicalRecords  MedicalRecord[]
+  prescriptions   Prescription[]
+  testOrders      TestOrder[]
+
+  @@map("staff")
+}
+
+// Appointment scheduling
+model Appointment {
+  id          String            @id @default(cuid())
+  patientId   String
+  staffId     String
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  status      AppointmentStatus @default(SCHEDULED)
+  priority    Priority          @default(MEDIUM)
+  notes       String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  patient     Patient @relation(fields: [patientId], references: [id])
+  staff       Staff   @relation(fields: [staffId], references: [id])
+
+  @@map("appointments")
+}
+
+// Electronic Medical Records
+model MedicalRecord {
+  id               String   @id @default(cuid())
+  patientId        String
+  staffId          String
+  visitDate        DateTime
+  chiefComplaint   String
+  presentIllness   String?
+  vitalSigns       Json?    // Store BP, temperature, pulse, etc.
+  physicalExam     String?
+  assessment       String
+  treatmentPlan    String
+  diagnosis        String?
+  followUpDate     DateTime?
+  attachments      String[] // File URLs
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  patient          Patient  @relation(fields: [patientId], references: [id])
+  staff            Staff    @relation(fields: [staffId], references: [id])
+
+  @@map("medical_records")
+}
+
+// Medication and prescription management
+model Medication {
+  id              String @id @default(cuid())
+  name            String @unique
+  genericName     String?
+  strength        String
+  form            String // tablet, capsule, liquid, etc.
+  manufacturer    String?
+  description     String?
+  sideEffects     String?
+  contraindications String?
+
+  prescriptions   Prescription[]
+
+  @@map("medications")
+}
+
+model Prescription {
+  id              String             @id @default(cuid())
+  patientId       String
+  staffId         String
+  medicationId    String
+  dosage          String
+  frequency       String
+  duration        String
+  instructions    String?
+  quantity        Int
+  refills         Int                @default(0)
+  status          PrescriptionStatus @default(PENDING)
+  prescribedAt    DateTime           @default(now())
+  dispensedAt     DateTime?
+
+  patient         Patient     @relation(fields: [patientId], references: [id])
+  staff           Staff       @relation(fields: [staffId], references: [id])
+  medication      Medication  @relation(fields: [medicationId], references: [id])
+
+  @@map("prescriptions")
+}
+
+// Laboratory tests
+model TestType {
+  id          String @id @default(cuid())
+  name        String @unique
+  code        String @unique
+  category    String
+  description String?
+  normalRange String?
+  units       String?
+
+  testOrders  TestOrder[]
+
+  @@map("test_types")
+}
+
+model TestOrder {
+  id           String     @id @default(cuid())
+  patientId    String
+  staffId      String
+  testTypeId   String
+  status       TestStatus @default(ORDERED)
+  priority     Priority   @default(MEDIUM)
+  instructions String?
+  results      String?
+  resultDate   DateTime?
+  orderedAt    DateTime   @default(now())
+
+  patient      Patient   @relation(fields: [patientId], references: [id])
+  staff        Staff     @relation(fields: [staffId], references: [id])
+  testType     TestType  @relation(fields: [testTypeId], references: [id])
+
+  @@map("test_orders")
+}
+
+// Billing and invoicing
+model BillingRecord {
+  id              String        @id @default(cuid())
+  patientId       String
+  invoiceNumber   String        @unique
+  totalAmount     Decimal       @db.Decimal(10, 2)
+  paidAmount      Decimal       @default(0) @db.Decimal(10, 2)
+  status          BillingStatus @default(PENDING)
+  dueDate         DateTime
+  paidDate        DateTime?
+  description     String
+  items           BillingItem[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  patient         Patient @relation(fields: [patientId], references: [id])
+
+  @@map("billing_records")
+}
+
+model BillingItem {
+  id              String        @id @default(cuid())
+  billingRecordId String
+  description     String
+  quantity        Int           @default(1)
+  unitPrice       Decimal       @db.Decimal(10, 2)
+  totalPrice      Decimal       @db.Decimal(10, 2)
+
+  billingRecord   BillingRecord @relation(fields: [billingRecordId], references: [id], onDelete: Cascade)
+
+  @@map("billing_items")
+}
+
+// Audit logging for compliance
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String
+  action      String
+  resource    String
+  resourceId  String?
+  details     Json?
+  ipAddress   String?
+  userAgent   String?
+  timestamp   DateTime @default(now())
+
+  user        User @relation(fields: [userId], references: [id])
+
+  @@map("audit_logs")
+}
+
+// Notifications system
+model Notification {
+  id          String   @id @default(cuid())
+  recipientId String
+  title       String
+  message     String
+  type        String   // appointment_reminder, test_result, etc.
+  priority    Priority @default(MEDIUM)
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@map("notifications")
+}
+
+// System settings
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+  type  String // string, number, boolean, json
+
+  @@map("settings")
+}
