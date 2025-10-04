@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Resume Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #4e73df;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 0.5rem;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill {
+      background: #eaf0fc;
+      color: #4e73df;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .contact-links a {
+      margin-right: 1rem;
+      text-decoration: none;
+      color: #1cc88a;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>John Doe</h1>
+    <p>Software Engineer | Web Developer | Tech Enthusiast</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        Passionate software engineer with a focus on building clean, scalable, and user-friendly web applications. Adept at problem solving and eager to learn new technologies.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Experience</h2>
+      <p><strong>Software Engineer</strong> - TechCorp (2022 - Present)</p>
+      <ul>
+        <li>Developed scalable web apps using React and Node.js.</li>
+        <li>Optimized APIs to reduce response time by 40%.</li>
+      </ul>
+      <p><strong>Intern Developer</strong> - DevSolutions (2021 - 2022)</p>
+      <ul>
+        <li>Assisted in building and testing client-facing web dashboards.</li>
+        <li>Implemented UI components improving usability and accessibility.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Computer Science</strong> - University of Somewhere (2018 - 2021)</p>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">React</span>
+        <span class="skill">Node.js</span>
+        <span class="skill">SQL</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:johndoe@example.com">Email</a>
+        <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
+        <a href="https://github.com/johndoe">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 John Doe. All rights reserved.
+  </footer>
+</body>
+</html>
